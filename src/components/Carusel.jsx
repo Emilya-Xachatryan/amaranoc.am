@@ -1,8 +1,8 @@
 import React, { useMemo, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import { image1,image2,image3 } from '../Class';
+import { image1, image2, image3, image4,image5,image6,image7, image8, image9, image10, image11, image12} from '../Class';
 import "../style/Carusel.css"
-
+import "../style/imageGallery.css"
 
 const carouselItems = [
   { label: 'Առանձնատներ', icon: 'home.svg', link: '/homes' },
@@ -23,7 +23,7 @@ const carouselItems = [
 
 const CarouselItem = React.memo(({ label, icon, onClick }) => {
   return (
-    <div className="group cursor-pointer flex flex-col items-center space-y-2 min-w-max">
+    <div className="group cursor-pointer flex flex-col items-center space-y-2 min-w-max" onClick={onClick}>
       <div className="bg-secondary" style={{ 
         maskImage: `url(https://api.amaranoc.am/${icon})`, 
         maskRepeat: 'no-repeat', 
@@ -38,29 +38,34 @@ const CarouselItem = React.memo(({ label, icon, onClick }) => {
   );
 });
 
-
-
 const Carousel = () => {
   const navigate = useNavigate();
-
-  const [selectedItem, setSelectedItem] = useState(null); 
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const memoizedItems = useMemo(() => carouselItems, []);
 
-
   const handleItemClick = (item) => {
-    console.log("Clicked item:", item);  
+    console.log("Clicked item:", item);
     if (item.label === 'Առանձնատներ') {
-      console.log("Setting selected items...");
-      setSelectedItem([image1, image2, image3]);
-    } else {
+      console.log("Setting selected items for Առանձնատներ...");
+      setSelectedItem([image1, image2, image3]); //  "Առանձնատներ" images
+    } else if (item.label === 'Frame houses') {
+      console.log("Setting selected items for Frame houses...");
+      setSelectedItem([image4, image5, image6]); // "Frame houses" images
+    }  else if (item.label === 'Տնակներ') {
+      console.log("Setting selected items for Տնակներ...");
+      setSelectedItem([image7, image8, image9]); // "Տնակներ" images
+    }else if (item.label === 'Փակ լողավազան') {
+      console.log("Setting selected items for Փակ լողավազան...");
+      setSelectedItem([image10, image11, image12]); // "Փակ լողավազան" images
+    }
+    else {
       setSelectedItem(null);
     }
   };
 
   return (
     <div>
-      
       <div className="carousel snap-mandatory flex overflow-auto hide-scrollbar space-x-10">
         {memoizedItems.map(item => (
           <div className="carousel-item !w-max" key={item.label}>
@@ -73,10 +78,8 @@ const Carousel = () => {
         ))}
       </div>
 
-
       {selectedItem && (
         <div className="details-container mt-4 p-4 border border-gray-300">
-          <h2 className="text-lg font-bold">Արձանագրություններ</h2>
           <div className="carousel-details">
             {selectedItem.map((detail, index) => (
               <div key={index} className="detail-item mb-4">
