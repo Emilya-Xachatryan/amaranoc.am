@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { image1, image2, image3, image4,image5,image6,image7, image8, image9, image10, image11, image12} from '../Class';
 import "../style/Carusel.css"
-import "../style/Gallery.css"
-
-
 
 
 const carouselItems = [
