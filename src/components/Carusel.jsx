@@ -1,8 +1,11 @@
 import React, { useMemo, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
+
 import { image1, image2, image3, image4,image5,image6,image7, image8, image9, image10, image11, image12} from '../Class';
 import "../style/Carusel.css"
 import "../style/Gallery.css"
+
+
 
 
 const carouselItems = [
@@ -48,16 +51,16 @@ const Carousel = () => {
   const handleItemClick = (item) => {
     console.log("Clicked item:", item);
     if (item.label === 'Առանձնատներ') {
-      console.log("Setting selected items for Առանձնատներ...");
+      // console.log("Setting selected items for Առանձնատներ...");
       setSelectedItem([image1, image2, image3]); //  "Առանձնատներ" images
     } else if (item.label === 'Frame houses') {
-      console.log("Setting selected items for Frame houses...");
+      // console.log("Setting selected items for Frame houses...");
       setSelectedItem([image4, image5, image6]); // "Frame houses" images
     }  else if (item.label === 'Տնակներ') {
-      console.log("Setting selected items for Տնակներ...");
+      // console.log("Setting selected items for Տնակներ...");
       setSelectedItem([image7, image8, image9]); // "Տնակներ" images
     }else if (item.label === 'Փակ լողավազան') {
-      console.log("Setting selected items for Փակ լողավազան...");
+      // console.log("Setting selected items for Փակ լողավազան...");
       setSelectedItem([image10, image11, image12]); // "Փակ լողավազան" images
     }
     else {
